@@ -21,10 +21,10 @@ namespace ManejoDeErrores
                 }
 
             }
-            catch (Exception ex)
+            catch (IndexOutOfRangeException)
             {
 
-                Console.WriteLine($"error: {ex.Message} ");
+                Console.WriteLine("error al mostrar los datos");
             }
             
             Console.ReadKey();
