@@ -6,14 +6,23 @@ namespace Problema02
     {
         static void Main(string[] args)
         {
-            int num1, num2;
-            byte result;
+            try
+            {
+                int num1, num2;
+                byte result;
 
-            num1 = 30;
-            num2 = 60;
-            result = Convert.ToByte(num1 * num2);
-            Console.WriteLine("{0} x {1} = {2}", num1, num2, result);
-            Console.ReadLine();
+                num1 = 30;
+                num2 = 60;
+                result = Convert.ToByte(num1 * num2);
+                Console.WriteLine("{0} x {1} = {2}", num1, num2, result);
+                Console.ReadLine();
+
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Error");
+            }
+            Console.ReadKey();
         }
     }
 }
