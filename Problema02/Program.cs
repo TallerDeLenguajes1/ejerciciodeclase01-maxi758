@@ -1,9 +1,11 @@
-﻿using System;
+﻿using NLog;
+using System;
 
 namespace Problema02
 {
     class Program
     {
+        private static readonly Logger myLogger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
             try
@@ -18,8 +20,9 @@ namespace Problema02
                 Console.ReadLine();
 
             }
-            catch (OverflowException)
+            catch (OverflowException oe)
             {
+                myLogger.Error(oe.ToString());
                 Console.WriteLine("Error");
             }
             Console.ReadKey();

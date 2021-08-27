@@ -1,9 +1,11 @@
-﻿using System;
+﻿using NLog;
+using System;
 
 namespace ManejoDeErrores
 {
     class Program
     {
+        private static readonly Logger myLogger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
             try
@@ -21,9 +23,9 @@ namespace ManejoDeErrores
                 }
 
             }
-            catch (IndexOutOfRangeException)
+            catch (IndexOutOfRangeException ex)
             {
-
+                myLogger.Error(ex.ToString());
                 Console.WriteLine("error al mostrar los datos");
             }
             

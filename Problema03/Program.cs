@@ -1,10 +1,12 @@
-﻿using System;
+﻿using NLog;
+using System;
 
 namespace Problema03
 {
 
     class Program
     {
+        private static readonly Logger myLogger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
             Auto Auto1 = CrearAutoFiat(2020);            
@@ -52,8 +54,9 @@ namespace Problema03
             {
                 Console.WriteLine("{0} - {1}", auto.Modelo, auto.Anio);
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException ex)
             {
+                myLogger.Error(ex.ToString());
                 Console.WriteLine("Error");
             }
             
